@@ -128,7 +128,7 @@ public class CakeView extends SurfaceView {
 
         // lab 3 checkpoint 4
         //Now a candle in the center
-        if(cakeModel.numCandles == 1) {
+        /*if(cakeModel.numCandles == 1) {
             drawCandle(canvas, cakeLeft + cakeWidth / 2 - candleWidth / 2, cakeTop);
         }
         else if (cakeModel.numCandles == 2) {
@@ -152,6 +152,12 @@ public class CakeView extends SurfaceView {
             drawCandle(canvas, cakeLeft + cakeWidth / 6*3 - candleWidth / 2, cakeTop);
             drawCandle(canvas, cakeLeft + cakeWidth / 6*4 - candleWidth / 2, cakeTop);
             drawCandle(canvas, cakeLeft + cakeWidth / 6*5 - candleWidth / 2, cakeTop);
+        } */
+
+        for(int i = 1; i <= cakeModel.numCandles; i++) {
+            drawCandle(canvas, cakeLeft + cakeWidth * i / (1+cakeModel.numCandles)
+                    - candleWidth / 2, cakeTop);
+
         }
 
     }//onDraw
