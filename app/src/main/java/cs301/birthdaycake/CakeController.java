@@ -55,12 +55,13 @@ public class CakeController implements View.OnClickListener, CompoundButton.OnCh
 
     // lab 4 checkpoint 2
     @Override
-    public boolean onTouch (View v, MotionEvent event){
-       if(event.getAction() == 0){
-            cakeModel.balloonX = event.getX();
-            cakeModel.balloonY = event.getY();
+    public boolean onTouch(View v, MotionEvent event) {
+        // location
+        cakeModel.touch = true;
+        cakeModel.x = event.getX();
+        cakeModel.y = event.getY();
 
-        }
-        return false;
+        cakeView.invalidate();
+        return cakeModel.touch;
     }
 }
