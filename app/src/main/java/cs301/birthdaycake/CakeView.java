@@ -17,6 +17,10 @@ public class CakeView extends SurfaceView {
     Paint innerFlamePaint = new Paint();
     Paint wickPaint = new Paint();
 
+    // lab 4 checkpoint 2 - location
+    Paint paint = new Paint();
+
+
     /* These constants define the dimensions of the cake.  While defining constants for things
         like this is good practice, we could be calculating these better by detecting
         and adapting to different tablets' screen sizes and resolutions.  I've deliberately
@@ -28,7 +32,7 @@ public class CakeView extends SurfaceView {
     public static final float layerHeight = 200.0f;
     public static final float frostHeight = 50.0f;
     public static final float candleHeight = 300.0f;
-    //lab 4 checkpoint 1
+    // lab 4 checkpoint 1
     public static final float candleWidth = 80.0f;
     //
     public static final float wickHeight = 30.0f;
@@ -63,6 +67,10 @@ public class CakeView extends SurfaceView {
         wickPaint.setColor(Color.BLACK);
         wickPaint.setStyle(Paint.Style.FILL);
 
+        // lab 4 checkpoint 2 - location
+        paint.setColor(Color.RED);
+        paint.setTextSize(40);
+
         setBackgroundColor(Color.WHITE);  //better than black default
 
         // lab 3 checkpoint 1
@@ -93,6 +101,7 @@ public class CakeView extends SurfaceView {
                 float wickLeft = left + candleWidth / 2 - wickWidth / 2;
                 float wickTop = bottom - wickHeight - candleHeight;
                 canvas.drawRect(wickLeft, wickTop, wickLeft + wickWidth, wickTop + wickHeight, wickPaint);
+
         }
     }
 
@@ -156,11 +165,17 @@ public class CakeView extends SurfaceView {
             drawCandle(canvas, cakeLeft + cakeWidth / 6*5 - candleWidth / 2, cakeTop);
         } */
 
+        // lab 3 checkpoint 4
         for(int i = 1; i <= cakeModel.numCandles; i++) {
             drawCandle(canvas, cakeLeft + cakeWidth * i / (1+cakeModel.numCandles)
                     - candleWidth / 2, cakeTop);
-
         }
+
+        // lab 4 checkpoint 2 - location
+        if(cakeModel.touch == true) {
+            DrawText(canvas, cakeModel.x, cakeModel.y);
+        }
+
 
     }//onDraw
 
@@ -169,6 +184,11 @@ public class CakeView extends SurfaceView {
         return cakeModel;
     }
 
+    // lab 4 checkpoint 2
+    public void DrawText(Canvas canvas, float x, float y) {
+        canvas.drawText("(" + String.valueOf(x) + " ,   " + String.valueOf(y) + ")",
+                1700, 900, paint);
+    }
 
 }//class CakeView
 
