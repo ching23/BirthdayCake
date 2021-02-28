@@ -16,6 +16,8 @@ public class CakeView extends SurfaceView {
     Paint outerFlamePaint = new Paint();
     Paint innerFlamePaint = new Paint();
     Paint wickPaint = new Paint();
+    Paint balloonColor = new Paint();
+    Paint stringColor = new Paint();
 
     // lab 4 checkpoint 2 - location
     Paint paint = new Paint();
@@ -66,6 +68,8 @@ public class CakeView extends SurfaceView {
         innerFlamePaint.setStyle(Paint.Style.FILL);
         wickPaint.setColor(Color.BLACK);
         wickPaint.setStyle(Paint.Style.FILL);
+        balloonColor.setColor(Color.BLUE);
+        stringColor.setColor(Color.BLACK);
 
         // lab 4 checkpoint 2 - location
         paint.setColor(Color.RED);
@@ -171,11 +175,14 @@ public class CakeView extends SurfaceView {
                     - candleWidth / 2, cakeTop);
         }
 
-        // lab 4 checkpoint 2 - location
-        if(cakeModel.touch == true) {
-            DrawText(canvas, cakeModel.x, cakeModel.y);
+        //lab 4 checkpoint 2
+        //draw balloon only on touch
+        if (cakeModel.hasBalloon = true){
+            //balloon
+            canvas.drawOval(cakeModel.balloonX - 75, cakeModel.balloonY - 100, cakeModel.balloonX + 75, cakeModel.balloonY + 100, balloonColor);
+            //string
+            canvas.drawLine(cakeModel.balloonX, cakeModel.balloonY, cakeModel.balloonX, cakeModel.balloonY + 300, stringColor);
         }
-
 
     }//onDraw
 
@@ -184,11 +191,7 @@ public class CakeView extends SurfaceView {
         return cakeModel;
     }
 
-    // lab 4 checkpoint 2
-    public void DrawText(Canvas canvas, float x, float y) {
-        canvas.drawText("(" + String.valueOf(x) + " ,   " + String.valueOf(y) + ")",
-                1700, 900, paint);
-    }
+
 
 }//class CakeView
 
