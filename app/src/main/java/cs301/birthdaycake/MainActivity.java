@@ -47,6 +47,6 @@ public class MainActivity extends AppCompatActivity {
 
     // lab 2 checkpoint 4 balloon
     public void goodbye(View button) {
-        System.out.println("goodbye");
+        System.out.println("BYE");
     }
 }
