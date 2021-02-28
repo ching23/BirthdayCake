@@ -175,7 +175,7 @@ public class CakeView extends SurfaceView {
                     - candleWidth / 2, cakeTop);
         }
 
-        //lab 4 checkpoint 2
+        //lab 4 checkpoint 2 balloon
         //draw balloon only on touch
         if (cakeModel.hasBalloon = true){
             //balloon

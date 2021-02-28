@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         cakeView.setOnTouchListener(cakeController);
     }
 
-    // lab 2 checkpoint 4
+    // lab 2 checkpoint 4 balloon
     public void goodbye(View button) {
         System.out.println("goodbye");
     }
