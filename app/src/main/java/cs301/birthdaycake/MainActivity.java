@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         SeekBar seekBar = findViewById(R.id.seekBar2);
         seekBar.setOnSeekBarChangeListener(cakeController);
 
-        // lab 4 checkpoint 2
+        // lab 4 checkpoint 2 balloon
         cakeView.setOnTouchListener(cakeController);
     }
 
